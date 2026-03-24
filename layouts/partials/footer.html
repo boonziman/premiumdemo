@@ -1,0 +1,41 @@
+{{- /*  Footer — v2 ARCHITECT  */ -}}
+
+<!-- CTA Section -->
+<section class="relative py-48 px-8 bg-surface-container-lowest overflow-hidden scroll-reveal">
+  <div class="absolute inset-0 opacity-20">
+    <div class="absolute top-0 left-0 w-full h-px bg-gradient-to-r from-transparent via-primary/40 to-transparent"></div>
+    <div class="absolute bottom-0 left-0 w-full h-px bg-gradient-to-r from-transparent via-primary/40 to-transparent"></div>
+  </div>
+  <div class="max-w-4xl mx-auto text-center relative z-10">
+    <h2 class="font-headline text-6xl md:text-8xl font-bold tracking-tighter uppercase mb-12">
+      Initiate<br/><span class="text-primary italic">Dialogue</span>
+    </h2>
+    <p class="font-body text-xl text-on-surface-variant/80 mb-16 max-w-2xl mx-auto font-light">
+      Secure your position at the summit. For those who understand that the future is built in silence.
+    </p>
+    <div class="flex flex-col md:flex-row justify-center gap-6">
+      <a href="{{ "/contact/" | relURL }}" class="metallic-hover bg-primary text-on-primary px-12 py-6 font-label uppercase tracking-widest text-sm transition-all duration-500 hover:bg-primary-container hover:scale-[1.02] active:scale-95 inline-flex items-center justify-center">
+        Request Consultation
+      </a>
+      <a href="{{ "/services/" | relURL }}" class="metallic-hover border border-outline-variant text-on-surface px-12 py-6 font-label uppercase tracking-widest text-sm transition-all duration-500 hover:bg-primary/5 hover:border-primary inline-flex items-center justify-center">
+        Private Portal
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- Footer Bar -->
+<footer class="w-full border-t border-outline-variant/20 bg-surface-container-lowest">
+  <div class="flex flex-col md:flex-row justify-between items-center px-12 py-16 w-full gap-8">
+    <a href="{{ "/" | relURL }}" class="font-headline text-xl font-bold text-on-surface no-underline">ARCHITECT</a>
+    <div class="flex flex-wrap justify-center gap-10">
+      <a class="font-label uppercase tracking-widest text-[10px] text-on-surface/60 hover:text-primary transition-colors duration-300 opacity-80 hover:opacity-100" href="#">Privacy Policy</a>
+      <a class="font-label uppercase tracking-widest text-[10px] text-on-surface/60 hover:text-primary transition-colors duration-300 opacity-80 hover:opacity-100" href="#">Terms of Service</a>
+      <a class="font-label uppercase tracking-widest text-[10px] text-on-surface/60 hover:text-primary transition-colors duration-300 opacity-80 hover:opacity-100" href="#">Careers</a>
+      <a class="font-label uppercase tracking-widest text-[10px] text-on-surface/60 hover:text-primary transition-colors duration-300 opacity-80 hover:opacity-100" href="#">Press</a>
+    </div>
+    <p class="font-label uppercase tracking-widest text-[10px] text-on-surface/40">
+      &copy; {{ .Site.Params.year | default now.Year }} THE SILENT ARCHITECT. ALL RIGHTS RESERVED.
+    </p>
+  </div>
+</footer>

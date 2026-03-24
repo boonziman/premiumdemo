@@ -1,0 +1,20 @@
+{{- /*  Base Template — v2 ARCHITECT  */ -}}
+<!DOCTYPE html>
+<html class="dark" lang="{{ .Site.LanguageCode | default "en" }}">
+<head>
+  {{- partial "head.html" . -}}
+</head>
+<body class="font-body bg-surface text-on-surface antialiased min-h-screen flex flex-col selection:bg-primary selection:text-on-primary overflow-x-hidden {{ if .IsHome }}home-page{{ end }}">
+
+  {{- partial "nav.html" . -}}
+
+  {{- block "main" . }}{{- end }}
+
+  {{- block "footer" . }}
+    {{- partial "footer.html" . -}}
+  {{- end }}
+
+  <script src="{{ "js/main.js" | relURL }}"></script>
+
+</body>
+</html>

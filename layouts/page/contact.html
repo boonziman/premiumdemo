@@ -1,0 +1,105 @@
+{{- /*  Contact Page — v2 ARCHITECT  */ -}}
+{{ define "main" }}
+
+<main class="flex-1 flex flex-col lg:flex-row w-full min-h-screen">
+
+  <!-- Left: Contact Form -->
+  <div class="w-full lg:w-1/2 flex flex-col justify-center px-8 md:px-20 py-16 bg-surface relative z-10">
+    <div class="max-w-xl w-full mx-auto space-y-12 scroll-reveal">
+      <header class="space-y-4">
+        <span class="font-label uppercase tracking-[0.2em] text-primary text-xs font-semibold">Get in Touch</span>
+        <h1 class="font-headline text-5xl md:text-7xl font-bold tracking-tighter leading-none">
+          LET'S BUILD <br/>EXCELLENCE.
+        </h1>
+        <p class="text-on-surface-variant max-w-md text-lg font-light leading-relaxed">
+          Every masterpiece begins with a conversation. Share your vision, and we will translate it into form.
+        </p>
+      </header>
+
+      <form id="contact-form" class="space-y-10">
+        <div class="relative input-group">
+          <input class="input-field peer" id="fullName" name="name" placeholder=" " required type="text" />
+          <label class="input-label" for="fullName">Full Name</label>
+        </div>
+        <div class="relative input-group">
+          <input class="input-field peer" id="email" name="email" placeholder=" " required type="email" />
+          <label class="input-label" for="email">Email Address</label>
+        </div>
+        <div class="relative input-group">
+          <textarea class="input-field peer resize-none" id="message" name="message" placeholder=" " required rows="4"></textarea>
+          <label class="input-label" for="message">Project Narrative</label>
+        </div>
+        <button type="submit" class="w-full md:w-auto px-12 py-5 bg-primary text-on-primary font-headline font-bold uppercase tracking-widest text-sm hover:brightness-110 transition-all duration-500 flex items-center justify-center gap-3 metallic-hover">
+          Initiate Inquiry
+          <span class="material-symbols-outlined text-sm">arrow_forward</span>
+        </button>
+      </form>
+
+      <!-- Success State -->
+      <div id="success-message" class="hidden space-y-6 py-12">
+        <div class="w-16 h-16 bg-primary-container/20 flex items-center justify-center text-primary">
+          <span class="material-symbols-outlined text-4xl">check_circle</span>
+        </div>
+        <h2 class="font-headline text-3xl font-bold">TRANSMISSION RECEIVED.</h2>
+        <p class="text-on-surface-variant max-w-sm">
+          Your inquiry has been encrypted and delivered. Our lead architect will review the details and respond within 24 hours.
+        </p>
+      </div>
+    </div>
+  </div>
+
+  <!-- Right: Custom Dark Map -->
+  <div class="w-full lg:w-1/2 bg-surface-container-lowest relative overflow-hidden min-h-[400px] lg:min-h-full">
+    <div class="absolute inset-0 grayscale contrast-[1.1] opacity-60">
+      <img alt="Monochromatic Dark Map"
+           class="w-full h-full object-cover custom-map-filter"
+           src="https://lh3.googleusercontent.com/aida-public/AB6AXuCkWEE-7NZBc-yabbW8MRQejI-wFcsqbrmnsBfu7CW3Bucrr0gT7qlmSbHNL9pf4T_soQWdwGpj2q2E2zxo3RsC-qMch63lUcZSb72zGj7ae04cUhipBF3YZian2VcjYwXVBdRxrUR6NL8JEEM6tDDE8APsZCOPaUMDEyEiMhUyq5gWU8EFgoaQraiv1ghaR5aULe4nRaHzBlC1vIzAcQpjcRkSQ87wK7Xi_s0WJ_ISv4WBpyrKm3y1uoLyNdF0i22I2CyN15NPwo8h" />
+    </div>
+
+    <!-- Overlay Gradients -->
+    <div class="absolute inset-0 bg-gradient-to-r from-background via-transparent to-transparent"></div>
+    <div class="absolute inset-0 bg-gradient-to-t from-background via-transparent to-transparent opacity-80"></div>
+
+    <!-- Diamond Map Marker -->
+    <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 group">
+      <div class="relative flex items-center justify-center">
+        <div class="absolute w-24 h-24 bg-primary/10 animate-ping rounded-full"></div>
+        <div class="w-4 h-4 bg-primary rotate-45 border-2 border-background z-10"></div>
+        <div class="absolute -top-16 bg-surface-container-high px-4 py-2 border border-outline-variant whitespace-nowrap opacity-0 group-hover:opacity-100 transition-opacity duration-500">
+          <span class="font-label uppercase tracking-widest text-[10px] text-on-surface">Studio Headquarters</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- Location Details Card -->
+    <div class="absolute bottom-12 left-12 right-12 md:right-auto md:w-80 bg-surface-container-lowest p-8 border-l-4 border-primary shadow-2xl">
+      <div class="space-y-6">
+        <div>
+          <span class="font-label uppercase tracking-widest text-[9px] text-outline block mb-2">Coordinates</span>
+          <p class="font-headline text-lg font-bold">40.7128° N, 74.0060° W</p>
+        </div>
+        <div>
+          <span class="font-label uppercase tracking-widest text-[9px] text-outline block mb-2">Physical Presence</span>
+          <p class="text-on-surface-variant text-sm leading-relaxed font-light">
+            77 HUDSON YARDS, 14TH FLOOR<br/>
+            NEW YORK, NY 10001
+          </p>
+        </div>
+        <div class="flex gap-4">
+          <a class="text-outline hover:text-primary transition-colors" href="#">
+            <span class="material-symbols-outlined text-xl">public</span>
+          </a>
+          <a class="text-outline hover:text-primary transition-colors" href="#">
+            <span class="material-symbols-outlined text-xl">alternate_email</span>
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+</main>
+
+{{ end }}
+
+{{- /* Suppress footer on Contact page */ -}}
+{{ define "footer" }}{{ end }}

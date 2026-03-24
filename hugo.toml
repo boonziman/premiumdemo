@@ -1,0 +1,36 @@
+################################################################################
+# ARCHITECT — The Silent Architect
+# Hugo Configuration — v2 Design System
+################################################################################
+
+baseURL       = 'https://boonziman.github.io/Premiumdemo/'
+languageCode  = 'en-us'
+title         = 'ARCHITECT'
+theme         = ''
+
+disableKinds  = ['taxonomy', 'term', 'RSS', 'sitemap', '404']
+
+[params]
+  description   = 'The Silent Architect — Strategic presence through organic brutalism. We build the silence.'
+  author        = 'The Silent Architect'
+  year          = '2024'
+  tagline       = 'Absolute Authority'
+  email         = 'studio@architect.com'
+  phone         = '+1 (212) 555-0190'
+  address       = '77 Hudson Yards, 14th Floor, New York, NY 10001'
+
+[permalinks]
+  page = '/:slug/'
+
+[markup]
+  [markup.goldmark]
+    [markup.goldmark.renderer]
+      unsafe = true
+
+[server]
+  [[server.headers]]
+    for = '/**'
+    [server.headers.values]
+      X-Frame-Options        = 'DENY'
+      X-Content-Type-Options = 'nosniff'
+      Referrer-Policy        = 'strict-origin-when-cross-origin'

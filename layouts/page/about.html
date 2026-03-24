@@ -1,0 +1,163 @@
+{{- /*  About Page — v2 ARCHITECT  */ -}}
+{{ define "main" }}
+
+<!-- Hero Split: Sticky Narrative + Scrolling Images -->
+<section class="flex flex-col md:flex-row min-h-screen">
+  <!-- Left: Sticky Narrative -->
+  <div class="w-full md:w-1/2 px-8 md:px-20 py-20 bg-surface-dim">
+    <div class="md:sticky md:top-40 scroll-reveal">
+      <span class="font-label uppercase tracking-[0.2em] text-primary text-xs mb-8 block">Our Philosophy</span>
+      <h1 class="font-headline font-extrabold text-5xl md:text-7xl leading-[0.9] tracking-tighter text-on-surface mb-12">
+        WE BUILD <br/> THE SILENCE.
+      </h1>
+      <div class="max-w-md">
+        <p class="text-on-surface-variant text-lg leading-relaxed font-light mb-12">
+          The Silent Architect is not merely a firm; it is a discipline. We believe that true luxury is not heard—it is felt through the absence of noise and the presence of precision.
+        </p>
+        <div class="space-y-6">
+          <div class="bg-surface-container-lowest p-8 border-l-2 border-primary">
+            <span class="font-headline italic text-3xl md:text-4xl text-on-surface tracking-tight leading-tight">
+              "Architecture is the learned game, correct and magnificent, of forms assembled in the light."
+            </span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Right: Scrolling Editorial Imagery -->
+  <div class="w-full md:w-1/2 bg-surface-container-lowest">
+    <div class="flex flex-col gap-0">
+      <div class="relative h-[819px] w-full overflow-hidden scroll-reveal">
+        <img class="w-full h-full object-cover about-img-bright" alt="Minimalist brutalist concrete building exterior"
+             src="https://lh3.googleusercontent.com/aida-public/AB6AXuBGze9nGXeLUnOqj2YsNgqHFY_aKMVMvvJ5wHsd3lmywUIJJIYuUeVdha10yDoQGmuRTC49aqDeCjdLv0Sw9S3N3jRZHq8rU3l3LItc1lzP7QGJhcxhP5Q1GEssXmBACILt7e25sL1S55yteRpgS3NdNBHVusoDdtdCy5DnylsP0-_YLvXsRtOiSgYKI2i4wM2Hh3rGS3eG7NJkDO245cDv7vD9-oD4bJvBpoiCA38fPcLCT1ZV5Q2vqIlaMD5TULDXqRhYyhq0uzYa" />
+        <div class="absolute inset-0 bg-gradient-to-t from-surface-container-lowest to-transparent"></div>
+      </div>
+      <div class="relative h-[819px] w-full overflow-hidden scroll-reveal">
+        <img class="w-full h-full object-cover about-img-bright" alt="Interior architectural detail of luxury residence"
+             src="https://lh3.googleusercontent.com/aida-public/AB6AXuDgYU82uBwTssVGEa8FsAahqGcjV3yfelf1VlTfWFWqEwoCVfoBzU3rE5CLu3PEUIAo1d1FQFiKKOqIdKvgOUOsTSAE0Iod2C74A4T4oHFEA5CNidhOezODHqvPjbKxWGt0diyZgmlFmFkE0b60dkgzzAOs_3l2aAnhlaiJvH5fzFVWaWN0XXjzJcE_9BT59f84wB_evPzNqxLHr-dcmev43jCO2zL-9zLlr-gSbh-KJACDz5F0t3g1NfSHCF3L1WEK4pAx9t1Hgb0n" />
+        <div class="absolute inset-0 bg-gradient-to-t from-surface-container-lowest to-transparent"></div>
+      </div>
+      <div class="relative h-[819px] w-full overflow-hidden scroll-reveal">
+        <img class="w-full h-full object-cover about-img-bright" alt="Abstract shadow pattern on grey wall"
+             src="https://lh3.googleusercontent.com/aida-public/AB6AXuAtRZBazRPMj8AC7HpNM_38GQMWt-ZP5ruUvdh-Ec-O_xDw5VeyMvOK2xXmSrPitxo9WXt7Zd1Ir0Bq8zkTVSv2yymHz6RjxnPBkHn2Ld2hxgzulmQLMkTj_xF6qT8hbOAyolgDTFuoaXy1Nz5MKFyVLm0aoZ-YpWkYZ7GoYa7sg4TnnVU0ky8FOO8922-_LLADJt5Apkja8YZglTHrfT5LeR8HTHIm0bIoNaBbp3FlX49yJxv92-cAly7q3rCVXGY8J_oTDJbLPTXX" />
+        <div class="absolute inset-0 bg-gradient-to-t from-surface-container-lowest to-transparent"></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<!-- Bento Values Grid -->
+<section class="px-8 md:px-20 py-32 bg-surface-container-lowest">
+  <div class="grid grid-cols-1 md:grid-cols-12 gap-1 mb-32">
+    <div class="md:col-span-8 bg-surface-dim p-12 flex flex-col justify-end min-h-[400px] bento-card" style="animation-delay: 0s">
+      <span class="font-headline text-7xl md:text-9xl text-stroke block mb-4">01</span>
+      <h3 class="font-headline text-4xl font-bold mb-4">PERMANENCE</h3>
+      <p class="text-on-surface-variant max-w-sm">Structures designed to outlast the trends of the current century.</p>
+    </div>
+    <div class="md:col-span-4 bg-primary p-12 flex flex-col justify-between bento-card" style="animation-delay: 0.15s">
+      <span class="material-symbols-outlined text-on-primary text-5xl">architecture</span>
+      <div>
+        <h3 class="font-headline text-4xl font-bold text-on-primary mb-4">PURITY</h3>
+        <p class="text-on-primary/80">Every line serves a structural purpose. Nothing is decorative.</p>
+      </div>
+    </div>
+    <div class="md:col-span-4 bg-surface-container-highest p-12 bento-card" style="animation-delay: 0.3s">
+      <h3 class="font-headline text-2xl font-bold mb-4">VOID</h3>
+      <p class="text-on-surface-variant">We utilize negative space as a primary material.</p>
+    </div>
+    <div class="md:col-span-8 bg-surface-container-low p-12 bento-card" style="animation-delay: 0.4s">
+      <h3 class="font-headline text-2xl font-bold mb-4">AUTHORITY</h3>
+      <p class="text-on-surface-variant">Commanding presence through minimalist restraint.</p>
+    </div>
+  </div>
+</section>
+
+
+<!-- Leadership Grid -->
+<section class="px-8 md:px-20 py-32 bg-surface-dim">
+  <div class="mb-20 scroll-reveal">
+    <span class="font-label uppercase tracking-[0.2em] text-primary text-xs mb-4 block">The Collective</span>
+    <h2 class="font-headline font-extrabold text-5xl tracking-tighter">LEADERSHIP</h2>
+  </div>
+  <div class="grid grid-cols-1 md:grid-cols-2 gap-px bg-outline-variant/20">
+    <!-- Leader 1 -->
+    <div class="group relative aspect-[4/5] bg-surface-container-lowest overflow-hidden leader-card" style="animation-delay: 0s">
+      <img class="monochrome-img absolute inset-0 w-full h-full object-cover" alt="Professional portrait of male architect"
+           src="https://lh3.googleusercontent.com/aida-public/AB6AXuD7l93rneH3tKw3nv-Wyo2sdGGflk0E8XLqfUqWHWjbH-1Y4LDDpGrFJRmSeuyCLJKqUaUaeOy8-uuyBqxftXXYuy0I8lcS3PIAESw_MaWC37ERWZcvtRZ_LS8lje4tmVP9SbHRSUJhqBDZ6Z8DnJ0S0yS7_DCkDveThXhWQ-Aj8u3H055sSKlHFbOWCkZdpDUhYWDRZjEyYaFzBFK9JE-eSnxtJ-_T3qZ0we4GthLsyR1KGlWQCbfIqg3ZZDtcSK6bkC4KJ6ULC_nb" />
+      <div class="absolute inset-0 bg-black/40 opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
+      <div class="absolute bottom-0 left-0 p-12 translate-y-8 group-hover:translate-y-0 transition-transform duration-500">
+        <span class="font-label uppercase tracking-widest text-primary text-xs mb-2 block opacity-0 group-hover:opacity-100 transition-opacity delay-100">Founder &amp; Principal</span>
+        <h4 class="font-headline text-4xl font-bold text-on-surface mb-2">ELIAS VANCE</h4>
+        <p class="text-on-surface-variant max-w-xs opacity-0 group-hover:opacity-100 transition-opacity delay-200">20 years of crafting monolithic structures across Europe and Asia.</p>
+      </div>
+    </div>
+
+    <!-- Leader 2 -->
+    <div class="group relative aspect-[4/5] bg-surface-container-lowest overflow-hidden leader-card" style="animation-delay: 0.15s">
+      <img class="monochrome-img absolute inset-0 w-full h-full object-cover" alt="Professional portrait of female designer"
+           src="https://lh3.googleusercontent.com/aida-public/AB6AXuCQPX2S4TK7tcvljIWktLiMdeaQrnKTE9j01D1l8YZXVZ7JZT_e0Frtp_RNd8n9IrBlrv1mEkoy830RFuNCJpM60y9rhbJS5prTUVtQIHfWnNVnkS2_ZXrgtJav8nkSaldZUeKy29gi_ArbpkUmzeY6-ZRKQRdI6IYBjX3s07onzoV4AjkCI2SWFQwdXPqMRb3vIRdt716voC8mi-9U7euPEaDRuGep8QinhHqvyiuMZl_nfZI1JKVYYltT6xWPCmRB9heE7o5KkuJ6" />
+      <div class="absolute inset-0 bg-black/40 opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
+      <div class="absolute bottom-0 left-0 p-12 translate-y-8 group-hover:translate-y-0 transition-transform duration-500">
+        <span class="font-label uppercase tracking-widest text-primary text-xs mb-2 block opacity-0 group-hover:opacity-100 transition-opacity delay-100">Creative Director</span>
+        <h4 class="font-headline text-4xl font-bold text-on-surface mb-2">SARAH CHEN</h4>
+        <p class="text-on-surface-variant max-w-xs opacity-0 group-hover:opacity-100 transition-opacity delay-200">Specializing in the intersection of organic brutalism and human utility.</p>
+      </div>
+    </div>
+
+    <!-- Leader 3 -->
+    <div class="group relative aspect-[4/5] bg-surface-container-lowest overflow-hidden leader-card" style="animation-delay: 0.3s">
+      <img class="monochrome-img absolute inset-0 w-full h-full object-cover" alt="Professional portrait of male engineer"
+           src="https://lh3.googleusercontent.com/aida-public/AB6AXuA50YOqdPfkTyagJK7WPRQ__x2L68TWJcIQbg2GkLanIobaScTxmnOmQFfvjeJ68t-zQj27kJlYIKcEGMYXD_YY7oz2B7KKVQcKCbYO9q2XseOppQiiIiKppm4Wr7lp8NNAglhdvbMbRbPWDg4ozOgMNCGMLAMy4UFbHagXjwXItY-vrmw3jsyLReFji1_EF2GSWdu80R903v1Zy2nBIA4VeiYUchzuW6Gj3Jcp8xlgHN5edIn9tVKG1KOXLOKDdN_HhU-6GwTH2sTR" />
+      <div class="absolute inset-0 bg-black/40 opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
+      <div class="absolute bottom-0 left-0 p-12 translate-y-8 group-hover:translate-y-0 transition-transform duration-500">
+        <span class="font-label uppercase tracking-widest text-primary text-xs mb-2 block opacity-0 group-hover:opacity-100 transition-opacity delay-100">Head of Engineering</span>
+        <h4 class="font-headline text-4xl font-bold text-on-surface mb-2">MARCUS THORNE</h4>
+        <p class="text-on-surface-variant max-w-xs opacity-0 group-hover:opacity-100 transition-opacity delay-200">The technical mind behind our most ambitious structural achievements.</p>
+      </div>
+    </div>
+
+    <!-- Leader 4 -->
+    <div class="group relative aspect-[4/5] bg-surface-container-lowest overflow-hidden leader-card" style="animation-delay: 0.4s">
+      <img class="monochrome-img absolute inset-0 w-full h-full object-cover" alt="Professional portrait of female strategist"
+           src="https://lh3.googleusercontent.com/aida-public/AB6AXuA-_-6udxWOmJVlpM_cB4U2Eryv-W_s8EXslu8wVU2FndkPDabtNLmSlffgBfQUJ4ulugYH_R5S3H_slvkrNNF-b3gFWzMxxnQEBMoxDupcLfggf-hDISbxOlPpUxBV0uqCLEKkC6eFDIHD27obUOfEXqlHJBzQ0MaR_szdD_TTdhL7M0HKWrtUopEZWWXCKufwQeJEzRL2ZvFpCQkiW8eB4WyJ4mMQZX2zUfFAsX9yQfk5XJolb9OiCb0Fk2yTb43J-s1jssmhHVIB" />
+      <div class="absolute inset-0 bg-black/40 opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
+      <div class="absolute bottom-0 left-0 p-12 translate-y-8 group-hover:translate-y-0 transition-transform duration-500">
+        <span class="font-label uppercase tracking-widest text-primary text-xs mb-2 block opacity-0 group-hover:opacity-100 transition-opacity delay-100">Lead Strategist</span>
+        <h4 class="font-headline text-4xl font-bold text-on-surface mb-2">ANNA KOWALSKI</h4>
+        <p class="text-on-surface-variant max-w-xs opacity-0 group-hover:opacity-100 transition-opacity delay-200">Defining the future of spatial experience through minimalist theory.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<!-- Large CTA -->
+<section class="py-40 px-8 text-center bg-surface-container-lowest scroll-reveal">
+  <h2 class="font-headline font-extrabold text-6xl md:text-9xl tracking-tighter mb-12 opacity-20">BUILD THE VOID</h2>
+  <a href="{{ "/contact/" | relURL }}" class="group inline-flex items-center gap-6 border border-outline-variant px-12 py-6 hover:bg-primary hover:border-primary transition-all duration-500 metallic-hover">
+    <span class="font-label uppercase tracking-[0.3em] text-sm group-hover:text-on-primary">Start Your Legacy</span>
+    <span class="material-symbols-outlined text-primary group-hover:text-on-primary group-hover:translate-x-2 transition-all">arrow_forward</span>
+  </a>
+</section>
+
+{{ end }}
+
+{{- /* Suppress shared footer CTA — about has its own BUILD THE VOID CTA */ -}}
+{{ define "footer" }}
+<footer class="w-full border-t border-outline-variant/20 bg-surface-container-lowest">
+  <div class="flex flex-col md:flex-row justify-between items-center px-12 py-16 w-full gap-8">
+    <a href="{{ "/" | relURL }}" class="font-headline text-xl font-bold text-on-surface no-underline">ARCHITECT</a>
+    <div class="flex flex-wrap justify-center gap-10">
+      <a class="font-label uppercase tracking-widest text-[10px] text-on-surface/60 hover:text-primary transition-colors duration-300 opacity-80 hover:opacity-100" href="#">Privacy Policy</a>
+      <a class="font-label uppercase tracking-widest text-[10px] text-on-surface/60 hover:text-primary transition-colors duration-300 opacity-80 hover:opacity-100" href="#">Terms of Service</a>
+      <a class="font-label uppercase tracking-widest text-[10px] text-on-surface/60 hover:text-primary transition-colors duration-300 opacity-80 hover:opacity-100" href="#">Careers</a>
+      <a class="font-label uppercase tracking-widest text-[10px] text-on-surface/60 hover:text-primary transition-colors duration-300 opacity-80 hover:opacity-100" href="#">Press</a>
+    </div>
+    <p class="font-label uppercase tracking-widest text-[10px] text-on-surface/40">
+      &copy; {{ .Site.Params.year | default now.Year }} THE SILENT ARCHITECT. ALL RIGHTS RESERVED.
+    </p>
+  </div>
+</footer>
+{{ end }}

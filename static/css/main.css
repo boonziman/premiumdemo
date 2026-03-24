@@ -1,0 +1,594 @@
+/* ═══════════════════════════════════════════════════════════════════════════
+   ARCHITECT — v2 Main Stylesheet
+   Material Design tokens, organic brutalism, tonal layering
+   ═══════════════════════════════════════════════════════════════════════════ */
+
+
+/* ── 1. BASE ── */
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background-color: #131313;
+  color: #e5e2e1;
+  overflow-x: hidden;
+  font-family: 'Outfit', sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  animation: pageLoad 0.7s ease-out;
+}
+
+@keyframes pageLoad {
+  from { opacity: 0; }
+  to   { opacity: 1; }
+}
+
+::selection {
+  background: rgba(233, 193, 118, 0.3);
+  color: #E9C176;
+}
+
+
+/* ── 2. SCROLLBAR ── */
+
+::-webkit-scrollbar { width: 4px; }
+::-webkit-scrollbar-track { background: #0e0e0e; }
+::-webkit-scrollbar-thumb { background: #4e4639; }
+::-webkit-scrollbar-thumb:hover { background: #E9C176; }
+
+
+/* ── 3. NAVIGATION ── */
+
+#main-nav {
+  transition: height 0.7s cubic-bezier(0.16, 1, 0.3, 1),
+              background-color 0.7s cubic-bezier(0.16, 1, 0.3, 1),
+              backdrop-filter 0.7s cubic-bezier(0.16, 1, 0.3, 1),
+              box-shadow 0.7s cubic-bezier(0.16, 1, 0.3, 1);
+}
+#main-nav.scrolled { height: 80px !important; }
+
+
+/* ── 4. TEXT STROKE (Hero) ── */
+
+.text-stroke {
+  -webkit-text-stroke: 1px #e5e2e1;
+  color: transparent;
+}
+
+
+/* ── 5. HERO BACKGROUND ── */
+
+/* --- HLS Video Layer (primary background) --- */
+.hero-video {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transform: scale(1.2);
+  transform-origin: center;
+  opacity: 0;
+  transition: opacity 1.5s ease;
+}
+.hero-video.loaded {
+  opacity: 1;
+}
+
+/* ── 5b. HERO TEXT ── */
+
+.luxury-heading {
+  letter-spacing: -0.02em;
+  text-shadow: 0 4px 80px rgba(0, 0, 0, 0.5);
+}
+
+@keyframes reveal {
+  from { opacity: 0; transform: translateY(20px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes pulse-scroll {
+  0%, 100% { opacity: 1; transform: scaleY(1); }
+  50%      { opacity: 0.3; transform: scaleY(0.6); }
+}
+
+
+/* ── 6. METALLIC HOVER (Buttons — KEPT from v1) ── */
+
+.metallic-hover {
+  position: relative;
+  background-image: linear-gradient(
+    135deg,
+    rgba(233, 193, 118, 0) 0%,
+    rgba(233, 193, 118, 0) 45%,
+    rgba(255, 255, 255, 0.4) 50%,
+    rgba(233, 193, 118, 0) 55%,
+    rgba(233, 193, 118, 0) 100%
+  );
+  background-size: 300% 300%;
+  background-position: 0% 0%;
+  transition: background-position 0.8s ease,
+              box-shadow 0.6s ease,
+              border-color 0.6s ease,
+              background-color 0.5s ease,
+              transform 0.5s ease;
+}
+.metallic-hover:hover {
+  background-position: 100% 100%;
+  box-shadow: 0 0 20px rgba(233, 193, 118, 0.3);
+}
+
+
+/* ── 7. SCROLL REVEAL ── */
+
+.scroll-reveal {
+  opacity: 0;
+  transform: translateY(60px);
+}
+.scroll-reveal.visible {
+  animation: revealUp 1.2s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+@keyframes revealUp {
+  0%   { opacity: 0; transform: translateY(60px); }
+  100% { opacity: 1; transform: translateY(0); }
+}
+
+/* Directional variants */
+.scroll-reveal-left {
+  opacity: 0;
+  transform: translateX(-80px);
+}
+.scroll-reveal-left.visible {
+  animation: revealLeft 1.4s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+@keyframes revealLeft {
+  0%   { opacity: 0; transform: translateX(-80px); }
+  100% { opacity: 1; transform: translateX(0); }
+}
+
+.scroll-reveal-right {
+  opacity: 0;
+  transform: translateX(80px);
+}
+.scroll-reveal-right.visible {
+  animation: revealRight 1.4s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+@keyframes revealRight {
+  0%   { opacity: 0; transform: translateX(80px); }
+  100% { opacity: 1; transform: translateX(0); }
+}
+
+/* Stagger children — set via JS or inline style */
+.scroll-stagger-child {
+  opacity: 0;
+  transform: translateY(40px);
+}
+.scroll-stagger-child.visible {
+  animation: revealUp 1s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+/* ── 7b. ACCENT LINE REVEAL ── */
+.accent-line {
+  width: 0;
+  height: 2px;
+  background: linear-gradient(90deg, #E9C176, rgba(233, 193, 118, 0.2));
+  transition: width 1.2s cubic-bezier(0.16, 1, 0.3, 1);
+}
+.accent-line.visible {
+  width: 80px;
+}
+
+
+
+
+/* ── 8. SERVICE CARDS ── */
+
+.services-grid .service-card {
+  transition: opacity 0.6s cubic-bezier(0.16, 1, 0.3, 1),
+              transform 0.6s cubic-bezier(0.16, 1, 0.3, 1),
+              border-color 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+}
+.services-grid:hover .service-card { opacity: 0.55; }
+.services-grid .service-card:hover {
+  opacity: 1;
+  transform: translateY(-6px);
+  border-color: #E9C176;
+  box-shadow: 0 30px 60px -15px rgba(0, 0, 0, 0.5),
+              0 0 0 1px rgba(233, 193, 118, 0.1);
+}
+
+/* Full-picture overlay card */
+.service-card-overlay {
+  position: relative;
+  aspect-ratio: 1 / 1;
+  overflow: hidden;
+  cursor: pointer;
+}
+.service-card-overlay .card-bg {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  filter: grayscale(50%) brightness(0.45);
+  transition: all 1s cubic-bezier(0.16, 1, 0.3, 1);
+  transform: scale(1.05);
+}
+.service-card-overlay:hover .card-bg {
+  filter: grayscale(20%) brightness(0.55);
+  transform: scale(1.1);
+}
+.service-card-overlay .card-gradient {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    to top,
+    rgba(19, 19, 19, 0.95) 0%,
+    rgba(19, 19, 19, 0.5) 40%,
+    rgba(19, 19, 19, 0.1) 70%,
+    transparent 100%
+  );
+  z-index: 2;
+}
+.service-card-overlay .card-content {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  padding: 32px;
+  z-index: 3;
+  transform: translateY(8px);
+  transition: transform 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+}
+.service-card-overlay:hover .card-content {
+  transform: translateY(0);
+}
+.service-card-overlay .card-number {
+  position: absolute;
+  top: 24px;
+  left: 28px;
+  z-index: 3;
+}
+.service-card-overlay .card-icon {
+  position: absolute;
+  top: 24px;
+  right: 28px;
+  z-index: 3;
+}
+
+/* Service card gold accent bar */
+.service-card-accent {
+  width: 0;
+  height: 2px;
+  background: linear-gradient(90deg, #E9C176, rgba(233, 193, 118, 0.3));
+  transition: width 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+  position: relative;
+  z-index: 4;
+}
+.service-card-overlay:hover .service-card-accent,
+.service-card:hover .service-card-accent {
+  width: 100%;
+}
+
+.service-icon {
+  font-variation-settings: 'FILL' 0, 'wght' 200, 'GRAD' 0, 'opsz' 48;
+  font-size: 28px;
+  color: rgba(233, 193, 118, 0.6);
+  transition: color 0.5s ease;
+}
+.service-card-overlay:hover .service-icon {
+  color: #E9C176;
+}
+
+/* Service intro image parallax */
+.service-hero-img {
+  filter: grayscale(60%) brightness(0.6) contrast(1.1);
+  transition: filter 1s cubic-bezier(0.16, 1, 0.3, 1);
+}
+.service-hero-img:hover {
+  filter: grayscale(30%) brightness(0.75) contrast(1.05);
+}
+
+
+/* ── 9. MONOCHROME IMAGE (About leadership — see section 16) ── */
+
+
+/* ── 10. CUSTOM MAP FILTER (Contact) ── */
+
+.custom-map-filter {
+  filter: grayscale(1) invert(0.9) contrast(1.2);
+}
+
+
+/* ── 11. CONTACT FORM ── */
+
+.input-group { position: relative; margin-bottom: 0; }
+
+.input-field {
+  width: 100%;
+  background: transparent;
+  border: none;
+  border-bottom: 1px solid #4e4639;
+  color: #e5e2e1;
+  font-family: 'Outfit', sans-serif;
+  font-size: 1rem;
+  padding: 0.75rem 0;
+  transition: border-color 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+  border-radius: 0;
+  outline: none;
+}
+.input-field:focus {
+  outline: none;
+  border-bottom-color: #E9C176;
+  box-shadow: none;
+  ring: 0;
+}
+
+.input-label {
+  position: absolute;
+  top: 0.75rem;
+  left: 0;
+  color: #9a8f80;
+  font-family: 'Outfit', sans-serif;
+  font-size: 0.625rem;
+  text-transform: uppercase;
+  letter-spacing: 0.15em;
+  pointer-events: none;
+  transition: all 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.input-field:focus ~ .input-label,
+.input-field:not(:placeholder-shown) ~ .input-label {
+  transform: translateY(-1.5rem) scale(0.9);
+  color: #E9C176;
+}
+
+input:-webkit-autofill,
+input:-webkit-autofill:hover,
+input:-webkit-autofill:focus,
+input:-webkit-autofill:active {
+  -webkit-box-shadow: 0 0 0 30px #131313 inset !important;
+  -webkit-text-fill-color: #e5e2e1 !important;
+  transition: background-color 5000s ease-in-out 0s;
+}
+
+
+/* ── 12. MATERIAL SYMBOLS ── */
+
+.material-symbols-outlined {
+  font-variation-settings: 'FILL' 0, 'wght' 300, 'GRAD' 0, 'opsz' 24;
+}
+
+
+/* ── 13. MOBILE MENU ── */
+
+#mobile-menu.active {
+  opacity: 1;
+  pointer-events: auto;
+  transform: translateY(0);
+}
+
+
+/* ── 14. RESPONSIVE ── */
+
+/* === Accessibility: respect reduced-motion === */
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+  .scroll-reveal, .scroll-reveal-left, .scroll-reveal-right,
+  .scroll-stagger-child, .bento-card, .leader-card {
+    opacity: 1 !important;
+    transform: none !important;
+  }
+}
+
+/* === Mobile: up to 768px === */
+@media (max-width: 768px) {
+
+  /* -- Nav -- */
+  #main-nav { height: 80px !important; }
+  #main-nav.scrolled { height: 70px !important; }
+
+  .text-stroke {
+    -webkit-text-stroke-width: 0.5px;
+  }
+
+  /* -- Hero text sizing -- */
+  .luxury-heading {
+    font-size: 3rem !important;
+    line-height: 0.95;
+  }
+
+  /* -- Editorial blocks -- */
+  .aspect-\[16\/9\] {
+    aspect-ratio: 4 / 3;
+  }
+
+  /* -- Service cards: 1 column, relaxed aspect -- */
+  .service-card-overlay {
+    aspect-ratio: 4 / 3;
+  }
+  .services-grid {
+    gap: 12px !important;
+  }
+  .service-card-overlay .card-content {
+    padding: 20px;
+  }
+
+  /* -- Methodology steps: stack vertically -- */
+  .sm\:grid-cols-3 {
+    grid-template-columns: 1fr;
+  }
+
+  /* -- About hero split: stack, reduce image heights -- */
+  section.flex.flex-col.md\:flex-row.min-h-screen {
+    min-height: auto;
+  }
+  .about-img-bright {
+    opacity: 0.85;
+  }
+
+  /* -- About scrolling images -- */
+  .h-\[819px\] {
+    height: 60vh;
+  }
+
+  /* -- Bento grid -- */
+  .bento-card {
+    min-height: 250px !important;
+  }
+  .text-stroke {
+    font-size: 4rem !important;
+  }
+
+  /* -- Leadership: 1 column on small screens -- */
+  .leader-card .absolute.bottom-0 {
+    padding: 1.5rem;
+  }
+  .leader-card h4 {
+    font-size: 1.5rem;
+  }
+
+  /* -- Footer CTA -- */
+  .py-48 {
+    padding-top: 5rem;
+    padding-bottom: 5rem;
+  }
+  .py-40 {
+    padding-top: 4rem;
+    padding-bottom: 4rem;
+  }
+
+  /* -- Contact page: map section -- */
+  .lg\:w-1\/2.bg-surface-container-lowest.relative.overflow-hidden {
+    min-height: 350px;
+  }
+
+  /* -- Scroll reveal: reduce travel distance on mobile -- */
+  .scroll-reveal {
+    transform: translateY(30px);
+  }
+  .scroll-reveal-left {
+    transform: translateX(-40px);
+  }
+  .scroll-reveal-right {
+    transform: translateX(40px);
+  }
+  @keyframes revealUp {
+    0%   { opacity: 0; transform: translateY(30px); }
+    100% { opacity: 1; transform: translateY(0); }
+  }
+  @keyframes revealLeft {
+    0%   { opacity: 0; transform: translateX(-40px); }
+    100% { opacity: 1; transform: translateX(0); }
+  }
+  @keyframes revealRight {
+    0%   { opacity: 0; transform: translateX(40px); }
+    100% { opacity: 1; transform: translateX(0); }
+  }
+
+  /* -- Marquee: smaller text -- */
+  .animate-marquee .font-headline {
+    font-size: 1.25rem;
+  }
+
+  /* -- Gold corner accents: smaller on mobile -- */
+  .border-b-2.border-l-2.border-primary\/40,
+  .border-t-2.border-r-2.border-primary\/40 {
+    width: 12px;
+    height: 12px;
+  }
+
+  /* -- Metallic hover: activate on touch -- */
+  .metallic-hover:active {
+    background-position: 100% 100%;
+    box-shadow: 0 0 20px rgba(233, 193, 118, 0.3);
+  }
+}
+
+/* === Small phones: up to 480px === */
+@media (max-width: 480px) {
+  .luxury-heading {
+    font-size: 2.5rem !important;
+  }
+  .service-card-overlay .card-content h3 {
+    font-size: 1.1rem;
+  }
+  .service-card-overlay .card-content p {
+    font-size: 0.8rem;
+  }
+  .font-headline.text-5xl,
+  .font-headline.text-6xl,
+  .font-headline.text-7xl {
+    font-size: 2rem !important;
+  }
+}
+
+
+/* ── 15. SITE-WIDE POLISH ── */
+
+.nav-accent {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, rgba(233, 193, 118, 0.35), transparent);
+  opacity: 0;
+  transition: opacity 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+}
+.nav-accent.visible {
+  opacity: 1;
+}
+
+:focus-visible {
+  outline: 2px solid rgba(233, 193, 118, 0.5);
+  outline-offset: 3px;
+}
+
+
+/* ── 16. ABOUT PAGE — Brighter images ── */
+
+.about-img-bright {
+  opacity: 0.75;
+  transition: opacity 1s cubic-bezier(0.16, 1, 0.3, 1),
+              filter 1s cubic-bezier(0.16, 1, 0.3, 1);
+}
+.about-img-bright:hover {
+  opacity: 0.9;
+}
+
+.monochrome-img {
+  filter: grayscale(70%) contrast(110%) brightness(1.1);
+  transition: all 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+}
+.monochrome-img:hover {
+  filter: grayscale(0%) contrast(100%) brightness(1);
+}
+
+/* Bento card scroll animation */
+.bento-card {
+  opacity: 0;
+  transform: translateY(50px) scale(0.97);
+}
+.bento-card.visible {
+  animation: bentoReveal 1s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+@keyframes bentoReveal {
+  0%   { opacity: 0; transform: translateY(50px) scale(0.97); }
+  100% { opacity: 1; transform: translateY(0) scale(1); }
+}
+
+/* Leadership card scroll animation */
+.leader-card {
+  opacity: 0;
+  transform: translateY(40px);
+}
+.leader-card.visible {
+  animation: revealUp 1s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
