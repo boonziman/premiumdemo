@@ -1,30 +1,34 @@
 {{- /*  Navigation — v2 Glassmorphic ARCHITECT  */ -}}
-{{- $isHome     := .IsHome -}}
-{{- $currentURL := .RelPermalink -}}
+{{- $isHome      := .IsHome -}}
+{{- $currentURL  := .RelPermalink -}}
+{{- $homeURL     := "" | relURL -}}
+{{- $servicesURL := "services/" | relURL -}}
+{{- $aboutURL    := "about/" | relURL -}}
+{{- $contactURL  := "contact/" | relURL -}}
 
 <header id="main-nav" class="fixed top-0 left-0 right-0 z-50 bg-transparent transition-all duration-700 ease-[cubic-bezier(0.16,1,0.3,1)]" style="height:100px;">
   <div class="flex justify-between items-center w-full h-full px-8 md:px-12 max-w-full">
 
     <!-- Logo -->
-    <a href="{{ "/" | relURL }}" class="font-headline text-2xl font-extrabold tracking-tighter text-on-surface no-underline z-50">ARCHITECT</a>
+    <a href="{{ $homeURL }}" class="font-headline text-2xl font-extrabold tracking-tighter text-on-surface no-underline z-50">ARCHITECT</a>
 
     <!-- Desktop Nav -->
     <div class="hidden md:flex items-center gap-14">
-      <a href="{{ "/" | relURL }}"
+      <a href="{{ $homeURL }}"
          class="font-label uppercase tracking-[0.15em] text-sm transition-colors duration-500 {{ if $isHome }}text-primary border-b border-primary pb-1{{ else }}text-on-surface hover:text-primary{{ end }}">Home</a>
 
-      <a href="{{ "/services/" | relURL }}"
-         class="font-label uppercase tracking-[0.15em] text-sm transition-colors duration-500 {{ if eq $currentURL "/services/" }}text-primary border-b border-primary pb-1{{ else }}text-on-surface hover:text-primary{{ end }}">Services</a>
+      <a href="{{ $servicesURL }}"
+         class="font-label uppercase tracking-[0.15em] text-sm transition-colors duration-500 {{ if eq $currentURL $servicesURL }}text-primary border-b border-primary pb-1{{ else }}text-on-surface hover:text-primary{{ end }}">Services</a>
 
-      <a href="{{ "/about/" | relURL }}"
-         class="font-label uppercase tracking-[0.15em] text-sm transition-colors duration-500 {{ if eq $currentURL "/about/" }}text-primary border-b border-primary pb-1{{ else }}text-on-surface hover:text-primary{{ end }}">About</a>
+      <a href="{{ $aboutURL }}"
+         class="font-label uppercase tracking-[0.15em] text-sm transition-colors duration-500 {{ if eq $currentURL $aboutURL }}text-primary border-b border-primary pb-1{{ else }}text-on-surface hover:text-primary{{ end }}">About</a>
 
-      <a href="{{ "/contact/" | relURL }}"
-         class="font-label uppercase tracking-[0.15em] text-sm transition-colors duration-500 {{ if eq $currentURL "/contact/" }}text-primary border-b border-primary pb-1{{ else }}text-on-surface hover:text-primary{{ end }}">Contact</a>
+      <a href="{{ $contactURL }}"
+         class="font-label uppercase tracking-[0.15em] text-sm transition-colors duration-500 {{ if eq $currentURL $contactURL }}text-primary border-b border-primary pb-1{{ else }}text-on-surface hover:text-primary{{ end }}">Contact</a>
     </div>
 
     <!-- Inquire CTA -->
-    <a href="{{ "/contact/" | relURL }}" class="hidden md:flex metallic-hover items-center justify-center bg-primary text-on-primary font-label uppercase tracking-[0.15em] text-sm px-10 py-4 transition-all duration-500 hover:bg-primary-container active:scale-95">
+    <a href="{{ $contactURL }}" class="hidden md:flex metallic-hover items-center justify-center bg-primary text-on-primary font-label uppercase tracking-[0.15em] text-sm px-10 py-4 transition-all duration-500 hover:bg-primary-container active:scale-95">
       Inquire
     </a>
 
@@ -38,12 +42,12 @@
 
 <!-- Mobile Menu Overlay -->
 <div id="mobile-menu" class="fixed inset-0 z-40 bg-surface flex flex-col items-center justify-center gap-8 transition-all duration-500 ease-[cubic-bezier(0.16,1,0.3,1)] opacity-0 pointer-events-none translate-y-[-20px]">
-  <a href="{{ "/" | relURL }}" class="{{ if $isHome }}text-primary{{ else }}text-on-surface{{ end }} font-headline text-2xl font-bold uppercase tracking-widest hover:text-primary transition-colors">Home</a>
-  <a href="{{ "/services/" | relURL }}" class="{{ if eq $currentURL "/services/" }}text-primary{{ else }}text-on-surface{{ end }} font-headline text-2xl font-bold uppercase tracking-widest hover:text-primary transition-colors">Services</a>
-  <a href="{{ "/about/" | relURL }}" class="{{ if eq $currentURL "/about/" }}text-primary{{ else }}text-on-surface{{ end }} font-headline text-2xl font-bold uppercase tracking-widest hover:text-primary transition-colors">About</a>
-  <a href="{{ "/contact/" | relURL }}" class="{{ if eq $currentURL "/contact/" }}text-primary{{ else }}text-on-surface{{ end }} font-headline text-2xl font-bold uppercase tracking-widest hover:text-primary transition-colors">Contact</a>
+  <a href="{{ $homeURL }}" class="{{ if $isHome }}text-primary{{ else }}text-on-surface{{ end }} font-headline text-2xl font-bold uppercase tracking-widest hover:text-primary transition-colors">Home</a>
+  <a href="{{ $servicesURL }}" class="{{ if eq $currentURL $servicesURL }}text-primary{{ else }}text-on-surface{{ end }} font-headline text-2xl font-bold uppercase tracking-widest hover:text-primary transition-colors">Services</a>
+  <a href="{{ $aboutURL }}" class="{{ if eq $currentURL $aboutURL }}text-primary{{ else }}text-on-surface{{ end }} font-headline text-2xl font-bold uppercase tracking-widest hover:text-primary transition-colors">About</a>
+  <a href="{{ $contactURL }}" class="{{ if eq $currentURL $contactURL }}text-primary{{ else }}text-on-surface{{ end }} font-headline text-2xl font-bold uppercase tracking-widest hover:text-primary transition-colors">Contact</a>
   <div class="mt-8">
-    <a href="{{ "/contact/" | relURL }}" class="metallic-hover flex h-14 px-10 items-center justify-center bg-primary text-on-primary font-label text-sm font-bold uppercase tracking-[0.1em]">
+    <a href="{{ $contactURL }}" class="metallic-hover flex h-14 px-10 items-center justify-center bg-primary text-on-primary font-label text-sm font-bold uppercase tracking-[0.1em]">
       Inquire
     </a>
   </div>
