@@ -205,4 +205,28 @@ document.addEventListener('DOMContentLoaded', () => {
     initHeroVideo();
   }
 
+
+  // 10. MOBILE SCROLL-SHINE — triggers metallic shimmer on touch-only devices
+  if (window.matchMedia('(hover: none)').matches) {
+    const shineObserver = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('scroll-shine');
+          // Remove class after animation so element returns to rest state
+          setTimeout(() => {
+            entry.target.classList.remove('scroll-shine');
+          }, 900);
+          shineObserver.unobserve(entry.target);
+        }
+      });
+    }, {
+      threshold: 0.5,
+      rootMargin: '0px 0px -30px 0px'
+    });
+
+    document.querySelectorAll('.metallic-hover').forEach(el => {
+      shineObserver.observe(el);
+    });
+  }
+
 });

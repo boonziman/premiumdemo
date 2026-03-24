@@ -295,11 +295,7 @@ body {
 /* ── 9. MONOCHROME IMAGE (About leadership — see section 16) ── */
 
 
-/* ── 10. CUSTOM MAP FILTER (Contact) ── */
-
-.custom-map-filter {
-  filter: grayscale(1) invert(0.9) contrast(1.2);
-}
+/* ── 10. (reserved) ── */
 
 
 /* ── 11. CONTACT FORM ── */
@@ -385,6 +381,16 @@ input:-webkit-autofill:active {
     opacity: 1 !important;
     transform: none !important;
   }
+  .accent-line {
+    width: 80px !important;
+  }
+  .geo-center-pulse {
+    animation: none !important;
+    opacity: 0.4;
+  }
+  .geo-ring, .geo-dot, .contact-grid {
+    animation: none !important;
+  }
 }
 
 /* === Mobile: up to 768px === */
@@ -464,9 +470,13 @@ input:-webkit-autofill:active {
     padding-bottom: 4rem;
   }
 
-  /* -- Contact page: map section -- */
+  /* -- Contact page: animated section -- */
   .lg\:w-1\/2.bg-surface-container-lowest.relative.overflow-hidden {
-    min-height: 350px;
+    min-height: 400px;
+  }
+  .geo-composition {
+    width: 260px !important;
+    height: 260px !important;
   }
 
   /* -- Scroll reveal: reduce travel distance on mobile -- */
@@ -526,6 +536,10 @@ input:-webkit-autofill:active {
   .font-headline.text-6xl,
   .font-headline.text-7xl {
     font-size: 2rem !important;
+  }
+  .geo-composition {
+    width: 220px !important;
+    height: 220px !important;
   }
 }
 
@@ -591,4 +605,137 @@ input:-webkit-autofill:active {
 }
 .leader-card.visible {
   animation: revealUp 1s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+
+/* ── 17. CONTACT PAGE — Animated Geometric Composition ── */
+
+.contact-grid {
+  background-image:
+    linear-gradient(rgba(233, 193, 118, 0.03) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(233, 193, 118, 0.03) 1px, transparent 1px);
+  background-size: 60px 60px;
+  animation: gridFade 4s ease-in-out infinite alternate;
+}
+
+@keyframes gridFade {
+  0%   { opacity: 0.3; }
+  100% { opacity: 0.7; }
+}
+
+.geo-composition {
+  position: relative;
+}
+
+.geo-ring {
+  position: absolute;
+  border: 1px solid rgba(233, 193, 118, 0.15);
+}
+
+.geo-ring-1 {
+  inset: 0;
+  animation: geoRotate 40s linear infinite;
+}
+
+.geo-ring-2 {
+  inset: 15%;
+  animation: geoRotate 30s linear infinite reverse;
+  border-color: rgba(233, 193, 118, 0.1);
+}
+
+.geo-ring-3 {
+  inset: 30%;
+  animation: geoRotate3 50s linear infinite;
+  border-color: rgba(233, 193, 118, 0.22);
+}
+
+@keyframes geoRotate {
+  from { transform: rotate(0deg); }
+  to   { transform: rotate(360deg); }
+}
+
+@keyframes geoRotate3 {
+  from { transform: rotate(45deg); }
+  to   { transform: rotate(405deg); }
+}
+
+.geo-crosshair-h,
+.geo-crosshair-v {
+  position: absolute;
+  background: rgba(233, 193, 118, 0.08);
+}
+
+.geo-crosshair-h {
+  top: 50%;
+  left: 0;
+  right: 0;
+  height: 1px;
+  transform: translateY(-0.5px);
+}
+
+.geo-crosshair-v {
+  left: 50%;
+  top: 0;
+  bottom: 0;
+  width: 1px;
+  transform: translateX(-0.5px);
+}
+
+.geo-dot {
+  position: absolute;
+  width: 6px;
+  height: 6px;
+  background: #E9C176;
+  transform: translate(-50%, -50%) rotate(45deg);
+  opacity: 0.4;
+}
+
+.geo-dot-1 { animation: geoDotPulse 3s ease-in-out 0s infinite; }
+.geo-dot-2 { animation: geoDotPulse 3s ease-in-out 0.75s infinite; }
+.geo-dot-3 { animation: geoDotPulse 3s ease-in-out 1.5s infinite; }
+.geo-dot-4 { animation: geoDotPulse 3s ease-in-out 2.25s infinite; }
+
+@keyframes geoDotPulse {
+  0%, 100% { opacity: 0.3; transform: translate(-50%, -50%) rotate(45deg) scale(1); }
+  50%      { opacity: 0.8; transform: translate(-50%, -50%) rotate(45deg) scale(1.4); }
+}
+
+.geo-center-pulse {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 40px;
+  height: 40px;
+  transform: translate(-50%, -50%);
+  border: 1px solid rgba(233, 193, 118, 0.2);
+  border-radius: 50%;
+  animation: centerPulse 3s ease-out infinite;
+}
+
+@keyframes centerPulse {
+  0%   { transform: translate(-50%, -50%) scale(0.5); opacity: 0.8; }
+  100% { transform: translate(-50%, -50%) scale(3); opacity: 0; }
+}
+
+.geo-center-dot {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 4px;
+  height: 4px;
+  background: #E9C176;
+  transform: translate(-50%, -50%) rotate(45deg);
+}
+
+
+/* ── 18. MOBILE SCROLL-SHINE ── */
+
+@keyframes scrollShine {
+  0%   { background-position: 0% 0%; }
+  100% { background-position: 100% 100%; }
+}
+
+.metallic-hover.scroll-shine {
+  animation: scrollShine 0.8s ease forwards;
+  box-shadow: 0 0 20px rgba(233, 193, 118, 0.25);
 }

@@ -4,13 +4,17 @@
 <main class="flex-1 flex flex-col lg:flex-row w-full min-h-screen">
 
   <!-- Left: Contact Form -->
-  <div class="w-full lg:w-1/2 flex flex-col justify-center px-8 md:px-20 py-16 bg-surface relative z-10">
-    <div class="max-w-xl w-full mx-auto space-y-12 scroll-reveal">
-      <header class="space-y-4">
-        <span class="font-label uppercase tracking-[0.2em] text-primary text-xs font-semibold">Get in Touch</span>
-        <h1 class="font-headline text-5xl md:text-7xl font-bold tracking-tighter leading-none">
-          LET'S BUILD <br/>EXCELLENCE.
+  <div class="w-full lg:w-1/2 flex flex-col justify-center px-8 md:px-20 py-24 lg:py-16 bg-surface relative z-10">
+    <div class="max-w-xl w-full mx-auto space-y-14 scroll-reveal">
+      <header class="space-y-6">
+        <span class="font-label uppercase tracking-[0.2em] text-primary text-xs font-semibold flex items-center gap-4">
+          <span class="w-8 h-[1px] bg-primary/50"></span>
+          Get in Touch
+        </span>
+        <h1 class="font-headline text-5xl md:text-7xl font-extrabold tracking-tighter leading-[0.9]">
+          LET'S BUILD<br/><span class="text-primary italic">Excellence.</span>
         </h1>
+        <div class="accent-line"></div>
         <p class="text-on-surface-variant max-w-md text-lg font-light leading-relaxed">
           Every masterpiece begins with a conversation. Share your vision, and we will translate it into form.
         </p>
@@ -26,6 +30,10 @@
           <label class="input-label" for="email">Email Address</label>
         </div>
         <div class="relative input-group">
+          <input class="input-field peer" id="company" name="company" placeholder=" " type="text" />
+          <label class="input-label" for="company">Company / Organization</label>
+        </div>
+        <div class="relative input-group">
           <textarea class="input-field peer resize-none" id="message" name="message" placeholder=" " required rows="4"></textarea>
           <label class="input-label" for="message">Project Narrative</label>
         </div>
@@ -37,64 +45,86 @@
 
       <!-- Success State -->
       <div id="success-message" class="hidden space-y-6 py-12">
-        <div class="w-16 h-16 bg-primary-container/20 flex items-center justify-center text-primary">
+        <div class="w-16 h-16 bg-primary/10 flex items-center justify-center text-primary">
           <span class="material-symbols-outlined text-4xl">check_circle</span>
         </div>
-        <h2 class="font-headline text-3xl font-bold">TRANSMISSION RECEIVED.</h2>
-        <p class="text-on-surface-variant max-w-sm">
+        <h2 class="font-headline text-3xl font-bold tracking-tight">TRANSMISSION RECEIVED.</h2>
+        <p class="text-on-surface-variant max-w-sm font-light leading-relaxed">
           Your inquiry has been encrypted and delivered. Our lead architect will review the details and respond within 24 hours.
         </p>
       </div>
     </div>
   </div>
 
-  <!-- Right: Custom Dark Map -->
-  <div class="w-full lg:w-1/2 bg-surface-container-lowest relative overflow-hidden min-h-[400px] lg:min-h-full">
-    <div class="absolute inset-0 grayscale contrast-[1.1] opacity-60">
-      <img alt="Monochromatic Dark Map"
-           class="w-full h-full object-cover custom-map-filter"
-           src="https://lh3.googleusercontent.com/aida-public/AB6AXuCkWEE-7NZBc-yabbW8MRQejI-wFcsqbrmnsBfu7CW3Bucrr0gT7qlmSbHNL9pf4T_soQWdwGpj2q2E2zxo3RsC-qMch63lUcZSb72zGj7ae04cUhipBF3YZian2VcjYwXVBdRxrUR6NL8JEEM6tDDE8APsZCOPaUMDEyEiMhUyq5gWU8EFgoaQraiv1ghaR5aULe4nRaHzBlC1vIzAcQpjcRkSQ87wK7Xi_s0WJ_ISv4WBpyrKm3y1uoLyNdF0i22I2CyN15NPwo8h" />
+  <!-- Right: Animated Architectural Composition -->
+  <div class="w-full lg:w-1/2 bg-surface-container-lowest relative overflow-hidden min-h-[500px] lg:min-h-full flex items-center justify-center">
+
+    <!-- Animated Grid Background -->
+    <div class="contact-grid absolute inset-0"></div>
+
+    <!-- Geometric Composition -->
+    <div class="geo-composition relative w-[320px] h-[320px] md:w-[420px] md:h-[420px] lg:w-[460px] lg:h-[460px]">
+      <!-- Rotating outer square -->
+      <div class="geo-ring geo-ring-1"></div>
+      <!-- Counter-rotating middle square -->
+      <div class="geo-ring geo-ring-2"></div>
+      <!-- Inner diamond -->
+      <div class="geo-ring geo-ring-3"></div>
+      <!-- Crosshair lines -->
+      <div class="geo-crosshair-h"></div>
+      <div class="geo-crosshair-v"></div>
+      <!-- Axis dots -->
+      <div class="geo-dot geo-dot-1" style="top: 0; left: 50%;"></div>
+      <div class="geo-dot geo-dot-2" style="top: 50%; right: 0; left: auto;"></div>
+      <div class="geo-dot geo-dot-3" style="bottom: 0; top: auto; left: 50%;"></div>
+      <div class="geo-dot geo-dot-4" style="top: 50%; left: 0;"></div>
+      <!-- Center pulse ring -->
+      <div class="geo-center-pulse"></div>
+      <!-- Center dot -->
+      <div class="geo-center-dot"></div>
     </div>
 
-    <!-- Overlay Gradients -->
-    <div class="absolute inset-0 bg-gradient-to-r from-background via-transparent to-transparent"></div>
-    <div class="absolute inset-0 bg-gradient-to-t from-background via-transparent to-transparent opacity-80"></div>
+    <!-- Depth gradients -->
+    <div class="absolute inset-0 bg-gradient-to-r from-surface via-transparent to-transparent opacity-50 pointer-events-none lg:opacity-60"></div>
+    <div class="absolute inset-0 bg-gradient-to-t from-surface-container-lowest via-transparent to-surface-container-lowest opacity-30 pointer-events-none"></div>
 
-    <!-- Diamond Map Marker -->
-    <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 group">
-      <div class="relative flex items-center justify-center">
-        <div class="absolute w-24 h-24 bg-primary/10 animate-ping rounded-full"></div>
-        <div class="w-4 h-4 bg-primary rotate-45 border-2 border-background z-10"></div>
-        <div class="absolute -top-16 bg-surface-container-high px-4 py-2 border border-outline-variant whitespace-nowrap opacity-0 group-hover:opacity-100 transition-opacity duration-500">
-          <span class="font-label uppercase tracking-widest text-[10px] text-on-surface">Studio Headquarters</span>
+    <!-- Top-right label -->
+    <div class="absolute top-8 right-8 lg:top-12 lg:right-12 z-10">
+      <span class="font-label uppercase tracking-[0.25em] text-outline/40 text-[9px]">Studio HQ</span>
+    </div>
+
+    <!-- Location Details -->
+    <div class="absolute bottom-8 left-8 right-8 md:right-auto md:max-w-xs lg:bottom-12 lg:left-12 z-10 scroll-reveal">
+      <div class="space-y-5">
+        <div class="flex items-center gap-3 mb-2">
+          <span class="w-2 h-2 bg-primary animate-pulse"></span>
+          <span class="font-label uppercase tracking-[0.2em] text-primary text-[10px] font-semibold">Active</span>
         </div>
-      </div>
-    </div>
-
-    <!-- Location Details Card -->
-    <div class="absolute bottom-12 left-12 right-12 md:right-auto md:w-80 bg-surface-container-lowest p-8 border-l-4 border-primary shadow-2xl">
-      <div class="space-y-6">
         <div>
           <span class="font-label uppercase tracking-widest text-[9px] text-outline block mb-2">Coordinates</span>
-          <p class="font-headline text-lg font-bold">40.7128° N, 74.0060° W</p>
+          <p class="font-headline text-lg font-bold tracking-tight">40.7128° N, 74.0060° W</p>
         </div>
         <div>
           <span class="font-label uppercase tracking-widest text-[9px] text-outline block mb-2">Physical Presence</span>
           <p class="text-on-surface-variant text-sm leading-relaxed font-light">
-            77 HUDSON YARDS, 14TH FLOOR<br/>
-            NEW YORK, NY 10001
+            77 Hudson Yards, 14th Floor<br/>
+            New York, NY 10001
           </p>
         </div>
-        <div class="flex gap-4">
-          <a class="text-outline hover:text-primary transition-colors" href="#">
+        <div class="flex gap-5 pt-1">
+          <a class="text-outline hover:text-primary transition-colors duration-300" href="#" aria-label="Website">
             <span class="material-symbols-outlined text-xl">public</span>
           </a>
-          <a class="text-outline hover:text-primary transition-colors" href="#">
+          <a class="text-outline hover:text-primary transition-colors duration-300" href="#" aria-label="Email">
             <span class="material-symbols-outlined text-xl">alternate_email</span>
+          </a>
+          <a class="text-outline hover:text-primary transition-colors duration-300" href="#" aria-label="Phone">
+            <span class="material-symbols-outlined text-xl">call</span>
           </a>
         </div>
       </div>
     </div>
+
   </div>
 
 </main>
