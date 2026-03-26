@@ -5,6 +5,9 @@ on:
   push:
     branches: ["main"]
   workflow_dispatch:
+  schedule:
+    # Re-deploy weekly (Sunday 6 AM UTC) to keep Pages environment active
+    - cron: "0 6 * * 0"
 
 permissions:
   contents: read

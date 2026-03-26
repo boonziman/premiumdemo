@@ -3,7 +3,7 @@
 # Hugo Configuration — v2 Design System
 ################################################################################
 
-baseURL       = 'https://boonziman.github.io/Premiumdemo/'
+baseURL       = 'https://boonziman.github.io/premiumdemo/'
 languageCode  = 'en-us'
 title         = 'ARCHITECT'
 
